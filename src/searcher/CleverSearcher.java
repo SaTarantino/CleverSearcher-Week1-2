@@ -1,5 +1,7 @@
 package searcher;
 
+import java.util.Arrays;
+
 public class CleverSearcher extends Searcher {
 
     CleverSearcher(int[] array, int k) {
@@ -8,19 +10,22 @@ public class CleverSearcher extends Searcher {
 
     public int findElement() throws IndexingError {
         int[] array = getArray();
-        int k = array[0]; // set kth element equal to the first element of the array
+        int k = getIndex();
+        int[] smallArray = new int[k];
 
-        for(int i = 0; i <= getArray().length - 1; i++){
+        for(int index = 0; index < k; index++){
             if(k <= 0 || k > array.length) {
                 throw new IndexingError();
             }
-                /**
-                 * Compare each element in the array with k,
-                 * if it's large than the current k set k equal than the element in array[i].
-                 */
-            if (array[i] > k) {
-                k = array[i];
+            smallArray[index] = array[index];
+        }
+        Arrays.sort(smallArray);
+        for (int index = k; index < array.length; index++) {
+            if (array[index] > smallArray[index]) {
+                smallArray[0] = array[index];
+                Arrays.sort(smallArray);
             }
-        } return k;
+        }
+        return smallArray[0];
     }
 }
