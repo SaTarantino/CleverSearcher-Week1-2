@@ -21,7 +21,7 @@ public class CleverSearcher extends Searcher {
         }
         Arrays.sort(smallArray);
         for (int index = k; index < array.length; index++) {
-            if (array[index] > smallArray[index]) {
+            if (array[index] > smallArray[0]) {
                 smallArray[0] = array[index];
                 Arrays.sort(smallArray);
             }
