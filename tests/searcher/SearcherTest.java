@@ -4,7 +4,7 @@ import arrayGenerator.ArrayGenerator;
 import arrayGenerator.CleverRandomListingGenerator;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author Hugh Osborne
@@ -19,7 +19,7 @@ abstract class SearcherTest {
     abstract protected Searcher createSearcher(int[] array, int index) throws IndexingError;
 
     /**
-     * Test that the searcher finds the corretc value.  The test uses a random listing generator to create
+     * Test that the searcher finds the correct value.  The test uses a random listing generator to create
      * a random listing of the requited size.  Because of the properties of random listings, the kth largest
      * element of a random listing of size n must be n-k.
      * @param arraySize the size of the random listing to be generated (the "n" value)
@@ -81,4 +81,11 @@ abstract class SearcherTest {
         testSearcher(1000000,4);
     }
 
+    @Test
+    public void testOutOfBondiers() throws IndexingError {
+        ArrayGenerator testArray = new CleverRandomListingGenerator(5);
+        Searcher searcher = createSearcher(testArray.getArray(), 7);
+        assertThrows(IndexingError.class,
+                ()->searcher.findElement());
+    }
 }
