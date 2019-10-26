@@ -4,6 +4,8 @@ import arrayGenerator.ArrayGenerator;
 import arrayGenerator.CleverRandomListingGenerator;
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.Array;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -82,9 +84,9 @@ abstract class SearcherTest {
     }
 
     @Test
-    public void testOutOfBondiers() throws IndexingError {
+    public void testOutOfBound() throws IndexingError {
         ArrayGenerator testArray = new CleverRandomListingGenerator(5);
-        Searcher searcher = createSearcher(testArray.getArray(), 7);
+        Searcher searcher = createSearcher(testArray.getArray(), 6);
         assertThrows(IndexingError.class,
                 ()->searcher.findElement());
     }
