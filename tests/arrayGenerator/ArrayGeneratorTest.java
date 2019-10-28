@@ -2,9 +2,6 @@ package arrayGenerator;
 
 import org.junit.jupiter.api.Test;
 
-import static junit.framework.TestCase.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 /**
  * Provides some default test methods for ArrayGenerators, checking that these generate arrays of the required
  * size.
