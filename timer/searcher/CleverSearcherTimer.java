@@ -4,6 +4,13 @@ import arrayGenerator.ArrayGenerator;
 import arrayGenerator.CleverRandomListingGenerator;
 import timer.Timer;
 
+/**
+ * author Salvatore Tarantino, u1860830
+ * u1860830@hud.ac.uk
+ *
+ * Based on SimpleSearcherTimer.
+ */
+
 public class CleverSearcherTimer extends CleverSearcher implements Timer {
 
     private final static int K = 5;
