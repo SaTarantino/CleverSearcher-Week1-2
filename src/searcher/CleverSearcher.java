@@ -17,7 +17,7 @@ public class CleverSearcher extends Searcher {
      * Clever Searcher create a new smallArray where it store the bigger number from the array T found until that moment.
      *
      * @param array the array of int where the method is going to work.
-     * @return
+     * @return the looking index
      */
 
     public int findElement() throws IndexingError {
